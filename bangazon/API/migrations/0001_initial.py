@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('account_date', models.DateTimeField(auto_now_add=True)),
-                ('active_inactive', models.BooleanField(default=True)),
+                ('active', models.BooleanField(default=True)),
                 ('last_login', models.DateTimeField(verbose_name='{account_date}')),
                 ('first_name', models.CharField(max_length=30)),
                 ('last_name', models.CharField(max_length=30)),
