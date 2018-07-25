@@ -8,18 +8,8 @@ from API.models import Product
 from API.serializers import ProductSerializer
 
 class ProductViewSet(viewsets.ModelViewSet):
-    def product_list(request):
 
-        if request.method == 'GET':
-            queryset = Product.objects.all()
-            serializer = ProductSerializer(queryset, many=True)
-            return JsonResponse(serializer.data, safe=False)
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
-        # elif request.method == 'POST':
-        #     data = JSONParser().parse(request)
-        #     serializer = ProductSerializer(data=data)
-        #     if serializer.is_valid():
-        #         serializer.save()
-        #         return JsonResponse(serializer.data, status=201)
-        #     return JsonResponse(serializer.errors, status=400)
 
