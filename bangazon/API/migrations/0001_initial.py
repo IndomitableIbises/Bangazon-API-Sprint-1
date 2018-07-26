@@ -18,7 +18,8 @@ class Migration(migrations.Migration):
                 ('description', models.CharField(max_length=250)),
                 ('quanity', models.IntegerField(default=1)),
             ],
-
+        ),
+        migrations.CreateModel(
             name='Customer',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
