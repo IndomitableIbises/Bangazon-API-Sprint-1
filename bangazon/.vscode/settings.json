@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "${workspaceFolder}\\bangenv\\Scripts\\python.exe"
+    "python.pythonPath": "${workspaceFolder}\\bangenv\\Scripts\\python.exe",
+    "python.linting.enabled": false
 }
