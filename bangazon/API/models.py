@@ -1,3 +1,4 @@
+from django.db import models
 # Authors Raf and Cashew <3
 
 
