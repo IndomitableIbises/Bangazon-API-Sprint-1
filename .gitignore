@@ -105,3 +105,6 @@ venv.bak/
 
 ### Python Patch ###
 .venv/
+
+## Local vs code settings ignored##
+.vscode/
