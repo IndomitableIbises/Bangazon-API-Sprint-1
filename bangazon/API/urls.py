@@ -13,6 +13,7 @@ router.register(r'products', views.ProductViewSet)
 
 # Takes us to the customers method on the view page when the url ends in "customers"
 router.register(r'customers', views.customers)
+router.register(r'product_type', views.Product_TypeViewSet)
 
 
 urlpatterns = [
