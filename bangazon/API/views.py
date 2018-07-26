@@ -20,7 +20,7 @@ class ProductViewSet(viewsets.ModelViewSet):
 # Shows the customers view
 class customers(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows customers to be viewed or edited.
     """
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer

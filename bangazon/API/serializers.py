@@ -8,9 +8,6 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'price', 'description', 'quantity')
 
 
-
-# 'customer_id', 'type_id'
-
 # Authors Raf and Cashew <3
 
 # Translates database into json format
