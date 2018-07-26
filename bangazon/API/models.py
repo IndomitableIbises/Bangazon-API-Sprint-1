@@ -1,5 +1,4 @@
 from django.db import models
-# Authors Raf and Cashew <3
 
 
 class Product(models.Model):
@@ -10,6 +9,7 @@ class Product(models.Model):
     # customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
     # type_id = models.ForeignKey(Product_Type)
 
+# Authors Raf and Cashew <3
 # Customer Model blueprint design for database table
 class Customer(models.Model):
     account_date = models.DateTimeField(auto_now_add=True)
@@ -20,3 +20,11 @@ class Customer(models.Model):
 
 class Product_Type(models.Model):
     name = models.CharField(max_length=30)
+
+
+# Author Cashew <3
+# Payment_Type Model blueprint design for database table
+class Payment_Type(models.Model):
+    name = models.CharField(max_length=30)
+    account_num = models.IntegerField(unique=True)
+    customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
