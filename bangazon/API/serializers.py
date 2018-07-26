@@ -1,12 +1,12 @@
 
 from rest_framework import serializers
-from API.models import Product, Customer, Order
-
+from API.models import Product, Customer, Product_Type, Order
 
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
         fields = ('id', 'account_date', 'active', 'last_login', 'first_name', 'last_name')
+
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -28,3 +28,8 @@ class OrderSerializer(serializers.ModelSerializer):
 # Translates database into json format
 
 
+
+class ProductTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product_Type
+        fields = ('id', 'name')

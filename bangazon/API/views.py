@@ -5,8 +5,9 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
-from API.models import Product, Customer, Order
-from API.serializers import ProductSerializer, CustomerSerializer, OrderSerializer
+from API.models import Product, Product_Type, Order, Customer
+from API.serializers import ProductSerializer, ProductTypeSerializer, CustomerSerializer, OrderSerializer
+
 
 class ProductViewSet(viewsets.ModelViewSet):
 
@@ -23,7 +24,14 @@ class customers(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
 
+
 class orders(viewsets.ModelViewSet):
 
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+
+class Product_TypeViewSet(viewsets.ModelViewSet):
+
+    queryset = Product_Type.objects.all()
+    serializer_class = ProductTypeSerializer
+
