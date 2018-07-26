@@ -21,6 +21,6 @@ class Product(models.Model):
 class Order(models.Model):
     order_name = models.CharField(max_length=30)
     product_id = models.ForeignKey(Product, on_delete=models.PROTECT, null=True, blank=True)
-    # customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    customer_id = models.ForeignKey(Customer, on_delete=models.PROTECT, null=True, blank=True)
     # payment_id = models.ForeignKey(Payment, default=Null)
 
