@@ -18,3 +18,7 @@ class Customer(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
 
+class Department(models.Model):
+    name = models.CharField(max_length=30)
+    # supervisor_id = models.ForeignKey(Employee, on_delete=models.PROTECT)
+    budget = models.DecimalField(max_digits=12, decimal_places=2, default=0)
