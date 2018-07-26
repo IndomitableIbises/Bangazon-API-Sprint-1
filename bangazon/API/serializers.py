@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from API.models import Product, Customer, Product_Type
+from API.models import Product, Customer, Product_Type, Computer
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,3 +24,8 @@ class ProductTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product_Type
         fields = ('id', 'name')
+
+class ComputerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Computer
+        fields = ('id', 'purchase_date', 'decom_date')

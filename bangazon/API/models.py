@@ -20,3 +20,7 @@ class Customer(models.Model):
 
 class Product_Type(models.Model):
     name = models.CharField(max_length=30)
+
+class Computer(models.Model):
+    purchase_date = models.DateTimeField(auto_now_add=True)
+    decom_date = models.IntegerField(default=1)
