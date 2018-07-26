@@ -13,3 +13,4 @@ class Command(BaseCommand):
     seeder.add_entity(Product_Type, 10)
     
     inserted_pks = seeder.execute()
+
