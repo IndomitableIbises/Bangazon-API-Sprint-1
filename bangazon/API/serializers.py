@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from API.models import Product, Customer, Product_Type, Payment_Type, Order, Employee
+from API.models import Product, Customer, Product_Type, Payment_Type, Order, Employee, Training_Prog
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -46,3 +46,9 @@ class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
         fields = '__all__' # this should automatically pipe in all field names and values once foreign keys in Employee Model are uncommented
+
+# Authors: Cashew & Raf <3 - TrainingSerializer
+class TrainingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Training_Prog
+        fields = '__all__' # this should automatically pipe in all field names and values once foreign keys in Training_Prog Model are uncommented

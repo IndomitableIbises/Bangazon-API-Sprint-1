@@ -5,8 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
-from API.models import Product, Product_Type, Customer, Order, Payment_Type, Employee
-from API.serializers import ProductSerializer, ProductTypeSerializer, CustomerSerializer, OrderSerializer, PaymentTypeSerializer, EmployeeSerializer
+from API.models import Product, Product_Type, Customer, Order, Payment_Type, Employee, Training_Prog
+from API.serializers import ProductSerializer, ProductTypeSerializer, CustomerSerializer, OrderSerializer, PaymentTypeSerializer, EmployeeSerializer, TrainingSerializer
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -56,3 +56,11 @@ class Employee(viewsets.ModelViewSet):
     """
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+
+# Authors: Cashew & Raf <3 - Training_Prog View
+class Training_Prog(viewsets.ModelViewSet):
+    """
+    API endpoint that allows training programs to be viewed or edited.
+    """
+    queryset = Training_Prog.objects.all()
+    serializer_class = TrainingSerializer

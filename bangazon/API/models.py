@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 ###########################################################################
@@ -68,3 +69,10 @@ class Employee(models.Model):
     ## Shows in field when you grab the foreign key the name of the employee
     def __str__(self):
         return f'{self.name}'
+
+# Authors: Cashew & Raf <3 - Training_Prog
+class Training_Prog(models.Model):
+    name = models.CharField(max_length=50)
+    start_date = models.DateTimeField(auto_now_add=True)
+    end_date = models.DateTimeField(auto_now_add=True)
+    max_attendees = models.PositiveIntegerField()
