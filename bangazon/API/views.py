@@ -48,6 +48,7 @@ class pay_types(viewsets.ModelViewSet):
 ###########################################################################
 # EMPLOYEE SIDE VIEWS
 ###########################################################################
+
 # Author Raf - EmployeeViewSet
 class Employee(viewsets.ModelViewSet):
     """

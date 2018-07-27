@@ -41,7 +41,7 @@ class PaymentTypeSerializer(serializers.ModelSerializer):
 # EMPLOYEE SIDE VIEWS
 ###########################################################################
 
-# Author Raf - EmployeeTypeSerializer
+# Author Raf - EmployeeSerializer
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee

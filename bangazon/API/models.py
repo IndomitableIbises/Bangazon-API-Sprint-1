@@ -65,6 +65,6 @@ class Employee(models.Model):
     supervisor = models.BooleanField(default=False)
     name = models.CharField(max_length=30)
 
-    ## Shows in field when you grab the foreign key the f/l name of the customer
+    ## Shows in field when you grab the foreign key the name of the employee
     def __str__(self):
         return f'{self.name}'
