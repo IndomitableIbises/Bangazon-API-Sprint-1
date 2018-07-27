@@ -1,7 +1,7 @@
 from django.db import models
+
+
 # Authors Raf and Cashew <3
-
-
 # Customer Model blueprint design for database table
 class Customer(models.Model):
     account_date = models.DateTimeField(auto_now_add=True)
@@ -14,6 +14,16 @@ class Department(models.Model):
     name = models.CharField(max_length=30)
     # supervisor_id = models.ForeignKey(Employee, on_delete=models.PROTECT)
     budget = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    ## Shows in field when you grab the foreign key the f/l name of the customer
+    def __str__(self):
+        return "{0} {1}".format(self.first_name, self.last_name)
+
+class Product_Type(models.Model):
+    name = models.CharField(max_length=30)
+
+    ## Shows in field when you grab the foreign key the name of the product type
+    def __str__(self):
+        return f'{self.name}'
 
 class Product(models.Model):
     title = models.CharField(max_length=30)
@@ -21,7 +31,12 @@ class Product(models.Model):
     description = models.CharField(max_length=250)
     quantity = models.IntegerField(default=1)
     customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True, blank=True)
-    # type_id = models.ForeignKey(Product_Type)
+    type_id = models.ForeignKey(Product_Type, on_delete=models.CASCADE, null=True, blank=True)
+
+    ## Shows in field when you grab the foreign key the title of the product
+    def __str__(self):
+        return "{0}".format(self.title)
+
 
 class Order(models.Model):
     order_name = models.CharField(max_length=30)
@@ -30,6 +45,10 @@ class Order(models.Model):
     # payment_id = models.ForeignKey(Payment, default=Null)
 
 
-class Product_Type(models.Model):
+# Author Cashew <3
+# Payment_Type Model blueprint design for database table
+class Payment_Type(models.Model):
     name = models.CharField(max_length=30)
+    account_num = models.IntegerField(unique=True)
+    customer_id = models.ForeignKey('Customer', on_delete=models.CASCADE, null=True, blank=True)
 
