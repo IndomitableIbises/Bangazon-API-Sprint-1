@@ -6,7 +6,7 @@ from API.models import Product, Customer, Product_Type, Payment_Type, Order
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'title', 'price', 'description', 'quantity')
+        fields = ('id', 'title', 'price', 'description', 'quantity', 'customer_id')
 
 
 
@@ -21,7 +21,7 @@ class CustomerSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ('id', 'order_name')
+        fields = ('id', 'order_name', 'product_id', 'customer_id')
 
 
 class ProductTypeSerializer(serializers.ModelSerializer):
