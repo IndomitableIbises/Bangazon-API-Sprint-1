@@ -9,6 +9,9 @@ from API.models import Product, Department
 from API.serializers import ProductSerializer, DepartmentSerializer
 from API.models import Customer
 from API.serializers import CustomerSerializer
+from API.models import Product, Product_Type, Order, Customer
+from API.serializers import ProductSerializer, ProductTypeSerializer, CustomerSerializer, OrderSerializer
+
 
 class ProductViewSet(viewsets.ModelViewSet):
 
@@ -28,3 +31,14 @@ class customers(viewsets.ModelViewSet):
 class DepartmentViewSet(viewsets.ModelViewSet):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
+
+class orders(viewsets.ModelViewSet):
+
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+class Product_TypeViewSet(viewsets.ModelViewSet):
+
+    queryset = Product_Type.objects.all()
+    serializer_class = ProductTypeSerializer
+
