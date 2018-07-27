@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from API.models import Product, Customer, Product_Type, Payment_Type, Order
+from API.models import Product, Customer, Product_Type, Payment_Type, Order, Employee
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -35,3 +35,14 @@ class PaymentTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payment_Type
         fields = ('id', 'name', 'account_num', 'customer_id')
+
+
+###########################################################################
+# EMPLOYEE SIDE VIEWS
+###########################################################################
+
+# Author Raf - EmployeeSerializer
+class EmployeeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Employee
+        fields = '__all__' # this should automatically pipe in all field names and values once foreign keys in Employee Model are uncommented

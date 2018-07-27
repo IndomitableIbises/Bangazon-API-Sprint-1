@@ -21,6 +21,14 @@ router.register(r'product_type', views.Product_TypeViewSet)
 router.register(r'payment_type', views.pay_types)
 
 
+###########################################################################
+# EMPLOYEE SIDE URLS
+###########################################################################
+
+# Author Raf - Employee Url
+router.register(r'employee', views.Employee)
+
+
 urlpatterns = [
     url(r'^', include(router.urls))
 ]
