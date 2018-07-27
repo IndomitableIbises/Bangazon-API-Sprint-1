@@ -29,6 +29,9 @@ router.register(r'payment_type', views.pay_types)
 router.register(r'employee', views.Employee)
 # Author Raf & Cashew <3 - Training_Prog Url
 router.register(r'training', views.Training_Prog)
+# Author Raf & Cashew <3 - Emp_Training Url
+router.register(r'employee_training', views.Emp_Train)
+
 
 
 urlpatterns = [

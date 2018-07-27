@@ -75,4 +75,12 @@ class Training_Prog(models.Model):
     name = models.CharField(max_length=50)
     start_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateTimeField(auto_now_add=True)
-    max_attendees = models.PositiveIntegerField()
+    max_attendees = models.PositiveIntegerField() # We need to find away to set the range from 1-100 and possibly allow a user to create an event and manually set the max attendees number
+
+    def __str__(self):
+        return f'{self.name}'
+
+# Authors: Cashew & Raf <3 - Emp_Training
+class Emp_Training(models.Model):
+    employee_id = models.ForeignKey('Employee', on_delete=models.PROTECT, null=True, blank=True)
+    training_id = models.ForeignKey('Training_Prog', on_delete=models.PROTECT, null=True, blank=True)
