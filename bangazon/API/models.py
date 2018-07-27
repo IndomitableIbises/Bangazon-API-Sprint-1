@@ -59,8 +59,12 @@ class Payment_Type(models.Model):
 
 # Author Raf - Employee Model
 class Employee(models.Model):
-    training_id = models.ForeignKey('Training', on_delete=models, CASCADE, null=True, blank=True)
-    department_id = models.ForeignKey('Department', on_delete=models.CASCADE, null=True, blank=True)
-    computer_id = models.ForeignKey('Computer', on_delete=models.CASCADE, null=True, blank=True)
+    # training_id = models.ForeignKey('Training', on_delete=models, CASCADE, null=True, blank=True)
+    # department_id = models.ForeignKey('Department', on_delete=models.CASCADE, null=True, blank=True)
+    # computer_id = models.ForeignKey('Computer', on_delete=models.CASCADE, null=True, blank=True)
     supervisor = models.BooleanField(default=False)
     name = models.CharField(max_length=30)
+
+    ## Shows in field when you grab the foreign key the f/l name of the customer
+    def __str__(self):
+        return f'{self.name}'

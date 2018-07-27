@@ -5,8 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
-from API.models import Product, Product_Type, Customer, Order, Payment_Type
-from API.serializers import ProductSerializer, ProductTypeSerializer, CustomerSerializer, OrderSerializer, PaymentTypeSerializer
+from API.models import Product, Product_Type, Customer, Order, Payment_Type, Employee
+from API.serializers import ProductSerializer, ProductTypeSerializer, CustomerSerializer, OrderSerializer, PaymentTypeSerializer, EmployeeSerializer
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -44,3 +44,14 @@ class pay_types(viewsets.ModelViewSet):
     queryset = Payment_Type.objects.all()
     serializer_class = PaymentTypeSerializer
 
+
+###########################################################################
+# EMPLOYEE SIDE VIEWS
+###########################################################################
+# Author Raf - EmployeeViewSet
+class Employee(viewsets.ModelViewSet):
+    """
+    API endpoint that allows employees to be viewed or edited.
+    """
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeSerializer
