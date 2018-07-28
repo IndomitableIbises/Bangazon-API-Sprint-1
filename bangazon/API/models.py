@@ -37,20 +37,19 @@ class Product(models.Model):
     def __str__(self):
         return "{0}".format(self.title)
 
-
-class Order(models.Model):
-    order_name = models.CharField(max_length=30)
-    product_id = models.ForeignKey(Product, on_delete=models.PROTECT, null=True, blank=True)
-    customer_id = models.ForeignKey(Customer, on_delete=models.PROTECT, null=True, blank=True)
-    # payment_id = models.ForeignKey(Payment, default=Null)
-
-    
 # Author Cashew <3
 # Payment_Type Model blueprint design for database table
 class Payment_Type(models.Model):
     name = models.CharField(max_length=30)
     account_num = models.IntegerField(unique=True)
     customer_id = models.ForeignKey('Customer', on_delete=models.CASCADE, null=True, blank=True)
+
+class Order(models.Model):
+    product_id = models.ForeignKey(Product, on_delete=models.PROTECT, null=True, blank=True)
+    customer_id = models.ForeignKey(Customer, on_delete=models.PROTECT, null=True, blank=True)
+    payment_id = models.ForeignKey(Payment_Type, on_delete=models.CASCADE, blank=True, null=True, default=None)
+
+    
 
 
 
