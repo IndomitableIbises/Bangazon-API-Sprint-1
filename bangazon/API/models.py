@@ -73,8 +73,8 @@ class Employee(models.Model):
 # Authors: Cashew & Raf <3 - Training_Prog
 class Training_Prog(models.Model):
     name = models.CharField(max_length=50)
-    start_date = models.DateTimeField(auto_now_add=True)
-    end_date = models.DateTimeField(auto_now_add=True)
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
     max_attendees = models.PositiveIntegerField() # We need to find away to set the range from 1-100 and possibly allow a user to create an event and manually set the max attendees number
 
     def __str__(self):
