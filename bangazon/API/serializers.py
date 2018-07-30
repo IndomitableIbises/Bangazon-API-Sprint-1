@@ -14,16 +14,11 @@ class CustomerSerializer(serializers.ModelSerializer):
         model = Customer
         fields = ('id', 'account_date', 'active', 'last_login', 'first_name', 'last_name')
 
-<<<<<<< HEAD
-
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ('id', 'product_id', 'customer_id',  'payment_id')
 
-
-=======
->>>>>>> master
 class ProductTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product_Type
