@@ -13,6 +13,8 @@ from API.models import Product, Product_Type, Order, Customer
 from API.serializers import ProductSerializer, ProductTypeSerializer, CustomerSerializer, OrderSerializer
 from API.models import Product, Product_Type, Customer, Order, Payment_Type
 from API.serializers import ProductSerializer, ProductTypeSerializer, CustomerSerializer, OrderSerializer, PaymentTypeSerializer
+from API.models import Product, Product_Type, Customer, Order, Payment_Type, Employee
+from API.serializers import ProductSerializer, ProductTypeSerializer, CustomerSerializer, OrderSerializer, PaymentTypeSerializer, EmployeeSerializer
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -53,3 +55,15 @@ class pay_types(viewsets.ModelViewSet):
     queryset = Payment_Type.objects.all()
     serializer_class = PaymentTypeSerializer
 
+
+###########################################################################
+# EMPLOYEE SIDE VIEWS
+###########################################################################
+
+# Author Raf - EmployeeViewSet
+class Employee(viewsets.ModelViewSet):
+    """
+    API endpoint that allows employees to be viewed or edited.
+    """
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeSerializer
