@@ -13,6 +13,10 @@ class Customer(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
 
+class Department(models.Model):
+    name = models.CharField(max_length=30)
+    # supervisor_id = models.ForeignKey(Employee, on_delete=models.PROTECT)
+    budget = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     ## Shows in field when you grab the foreign key the f/l name of the customer
     def __str__(self):
         return "{0} {1}".format(self.first_name, self.last_name)
@@ -43,7 +47,7 @@ class Order(models.Model):
     customer_id = models.ForeignKey(Customer, on_delete=models.PROTECT, null=True, blank=True)
     # payment_id = models.ForeignKey(Payment, default=Null)
 
-    
+
 # Author Cashew <3
 # Payment_Type Model blueprint design for database table
 class Payment_Type(models.Model):
