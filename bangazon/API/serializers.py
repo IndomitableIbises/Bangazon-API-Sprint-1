@@ -1,6 +1,17 @@
 
 from rest_framework import serializers
 from API.models import Product, Customer, Product_Type, Payment_Type, Order, Employee, Training_Prog, Emp_Training
+from API.models import Product, Customer, Product_Type, Computer
+from API.models import Product, Customer, Department
+from API.models import Product, Customer, Product_Type, Order
+
+class CustomerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        fields = ('id', 'account_date', 'active', 'last_login', 'first_name', 'last_name')
+
+from API.models import Product, Customer, Product_Type, Payment_Type, Order
+from API.models import Product, Customer, Product_Type, Payment_Type, Order, Employee
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -17,6 +28,14 @@ class CustomerSerializer(serializers.ModelSerializer):
         model = Customer
         fields = ('id', 'account_date', 'active', 'last_login', 'first_name', 'last_name')
 
+# Translates database into json format
+
+class DepartmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Department
+        fields = ('id', 'name', 'budget')
+
+        # 'supervisor_id'
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
@@ -29,6 +48,10 @@ class ProductTypeSerializer(serializers.ModelSerializer):
         model = Product_Type
         fields = ('id', 'name')
 
+class ComputerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Computer
+        fields = ('id', 'purchase_date', 'decom_date')
 # Author Cashew <3
 # Translates customer table database into json format
 class PaymentTypeSerializer(serializers.ModelSerializer):
