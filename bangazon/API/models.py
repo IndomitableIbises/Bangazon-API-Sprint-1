@@ -82,7 +82,6 @@ class Training_Prog(models.Model):
 
 # Author Raf - Employee Model
 class Employee(models.Model):
-    # training_id = models.ForeignKey('Training', on_delete=models.CASCADE, null=True, blank=True)
     department_id = models.ForeignKey(Department, on_delete=models.CASCADE, null=True, blank=True)
     computer_id = models.ForeignKey(Computer, on_delete=models.CASCADE, null=True, blank=True)
     supervisor = models.BooleanField(default=False)
