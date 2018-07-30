@@ -24,6 +24,9 @@ class Department(models.Model):
 class Product_Type(models.Model):
     name = models.CharField(max_length=30)
 
+class Computer(models.Model):
+    purchase_date = models.DateTimeField(auto_now_add=True)
+    decom_date = models.DateTimeField(auto_now_add=False, null=True, blank=True)
     ## Shows in field when you grab the foreign key the name of the product type
     def __str__(self):
         return f'{self.name}'

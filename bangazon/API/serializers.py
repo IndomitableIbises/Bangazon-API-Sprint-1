@@ -1,5 +1,6 @@
 
 from rest_framework import serializers
+from API.models import Product, Customer, Product_Type, Computer
 from API.models import Product, Customer, Department
 from API.models import Product, Customer, Product_Type, Order
 
@@ -46,6 +47,10 @@ class ProductTypeSerializer(serializers.ModelSerializer):
         model = Product_Type
         fields = ('id', 'name')
 
+class ComputerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Computer
+        fields = ('id', 'purchase_date', 'decom_date')
 # Author Cashew <3
 # Translates customer table database into json format
 class PaymentTypeSerializer(serializers.ModelSerializer):
