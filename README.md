@@ -1,6 +1,7 @@
 # Bangazon-API-Sprint-1
+This is an API for Bangazon INC. This API will allow user to GET/POST/PUT and (sometimes) DELETE items from the Bangazon Database.
 
-CUSTOMERS -
+#CUSTOMERS -
 
 GET: /customer pulls all customer entries
 
