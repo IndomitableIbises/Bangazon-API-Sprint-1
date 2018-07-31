@@ -13,6 +13,7 @@ class Customer(models.Model):
     last_login = models.DateTimeField(auto_now_add=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
+    
 
     def __str__(self):
         return "{0} {1}".format(self.first_name, self.last_name)

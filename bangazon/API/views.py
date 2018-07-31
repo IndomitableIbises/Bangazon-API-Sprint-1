@@ -21,6 +21,7 @@ class customers(viewsets.ModelViewSet):
     """
     queryset = Customer.objects.all()
     serializer_class= CustomerSerializer
+    http_method_names = ['get', 'put', 'post']
 
 class Product_TypeViewSet(viewsets.ModelViewSet):
     """
@@ -64,6 +65,8 @@ class Employee(viewsets.ModelViewSet):
     """
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+    http_method_names = ['get', 'put', 'post']
+    
 
 class DepartmentViewSet(viewsets.ModelViewSet):
     """
@@ -71,6 +74,7 @@ class DepartmentViewSet(viewsets.ModelViewSet):
     """
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
+    http_method_names = ['get', 'put', 'post']
 
 class ComputerViewSet(viewsets.ModelViewSet):
     """
