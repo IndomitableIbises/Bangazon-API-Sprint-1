@@ -14,6 +14,7 @@ router = routers.DefaultRouter()
 # Takes us to the customers method on the view page when the url ends in "customers"
 router.register(r'customers', views.customers)
 
+#  Author: Raf - InactiveURL
 # Takes us to the Inactive Customers
 router.register(r'inactive_customers', views.inactive_customers, base_name='inactive')
 
