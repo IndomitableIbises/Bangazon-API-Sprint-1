@@ -23,6 +23,7 @@ class customers(viewsets.ModelViewSet):
     serializer_class= CustomerSerializer
     http_method_names = ['get', 'put', 'post']
 
+# Author Jake - Product_Type View
 class Product_TypeViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Product Type to be viewed or edited.
@@ -30,6 +31,7 @@ class Product_TypeViewSet(viewsets.ModelViewSet):
     queryset = Product_Type.objects.all()
     serializer_class = ProductTypeSerializer
 
+# Authors: Sean & Jake - Product View
 class ProductViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Products to be viewed or edited.
@@ -37,7 +39,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-# Authors Cashew <3
+# Author Cashew <3
 # Shows the Payment_types view
 class pay_types(viewsets.ModelViewSet):
     """
@@ -46,6 +48,7 @@ class pay_types(viewsets.ModelViewSet):
     queryset = Payment_Type.objects.all()
     serializer_class = PaymentTypeSerializer
 
+# Author Sean - Orders view
 class orders(viewsets.ModelViewSet):
     """
     API endpoint that allows Orders to be viewed or edited.
@@ -53,6 +56,13 @@ class orders(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
+# Authors: Cashew & Jake <3 - Prod_Order View
+class Prod_Order_ViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows you to connect a customers order with their products.
+    """
+    queryset = Prod_Order.objects.all()
+    serializer_class = Prod_Order_Serializer
 
 ###########################################################################
 # EMPLOYEE SIDE VIEWS
@@ -67,7 +77,7 @@ class Employee(viewsets.ModelViewSet):
     serializer_class = EmployeeSerializer
     http_method_names = ['get', 'put', 'post']
 
-
+# Author Jake - Department View
 class DepartmentViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Departments to be viewed or edited.
@@ -76,6 +86,7 @@ class DepartmentViewSet(viewsets.ModelViewSet):
     serializer_class = DepartmentSerializer
     http_method_names = ['get', 'put', 'post']
 
+# Author Jake - Computer View
 class ComputerViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Computers to be viewed or edited.
@@ -98,7 +109,3 @@ class Emp_Train(viewsets.ModelViewSet):
     """
     queryset = Emp_Training.objects.all()
     serializer_class = Emp_TrainSerializer
-
-class Prod_Order_ViewSet(viewsets.ModelViewSet):
-    queryset = Prod_Order.objects.all()
-    serializer_class = Prod_Order_Serializer
