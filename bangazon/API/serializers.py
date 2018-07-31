@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from API.models import Product, Customer, Product_Type, Payment_Type, Order, Employee, Training_Prog, Emp_Training, Department, Computer
+from API.models import Product, Customer, Product_Type, Payment_Type, Order, Employee, Training_Prog, Emp_Training, Department, Computer, Prod_Order
 
 
 ###########################################################################
@@ -14,20 +14,28 @@ class CustomerSerializer(serializers.ModelSerializer):
         model = Customer
         fields = ('id', 'account_date', 'active', 'last_login', 'first_name', 'last_name')
 
+class Prod_Order_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Prod_Order
+        fields = '__all__'
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ('id', 'title', 'price', 'description', 'quantity', 'customer_id', 'type_id')
+
 class OrderSerializer(serializers.ModelSerializer):
+    products = ProductSerializer(many=True, read_only=True)
     class Meta:
         model = Order
-        fields = ('id', 'product_id', 'customer_id',  'payment_id')
+        fields = ('id', 'customer_id',  'payment_id', 'completed', 'products')
+
 
 class ProductTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product_Type
         fields = ('id', 'name')
 
-class ProductSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Product
-        fields = ('id', 'title', 'price', 'description', 'quantity', 'customer_id', 'type_id')
 
 # Author Cashew <3
 # Translates customer table database into json format
@@ -45,7 +53,7 @@ class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
         fields = ('id', 'name', 'budget')
-        
+
 
 class ComputerSerializer(serializers.ModelSerializer):
     class Meta:

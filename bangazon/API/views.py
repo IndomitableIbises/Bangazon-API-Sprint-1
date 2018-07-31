@@ -5,8 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
-from API.models import Product, Product_Type, Customer, Order, Payment_Type, Employee, Training_Prog, Emp_Training, Department, Computer
-from API.serializers import ProductSerializer, ProductTypeSerializer, CustomerSerializer, OrderSerializer, PaymentTypeSerializer, EmployeeSerializer, TrainingSerializer, Emp_TrainSerializer, DepartmentSerializer, ComputerSerializer
+from API.models import Product, Product_Type, Customer, Order, Payment_Type, Employee, Training_Prog, Emp_Training, Department, Computer, Prod_Order
+from API.serializers import ProductSerializer, ProductTypeSerializer, CustomerSerializer, OrderSerializer, PaymentTypeSerializer, EmployeeSerializer, TrainingSerializer, Emp_TrainSerializer, DepartmentSerializer, ComputerSerializer, Prod_Order_Serializer
 
 
 ###########################################################################
@@ -66,7 +66,7 @@ class Employee(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
     http_method_names = ['get', 'put', 'post']
-    
+
 
 class DepartmentViewSet(viewsets.ModelViewSet):
     """
@@ -98,3 +98,7 @@ class Emp_Train(viewsets.ModelViewSet):
     """
     queryset = Emp_Training.objects.all()
     serializer_class = Emp_TrainSerializer
+
+class Prod_Order_ViewSet(viewsets.ModelViewSet):
+    queryset = Prod_Order.objects.all()
+    serializer_class = Prod_Order_Serializer
