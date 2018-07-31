@@ -14,6 +14,11 @@ class CustomerSerializer(serializers.ModelSerializer):
         model = Customer
         fields = ('id', 'account_date', 'active', 'last_login', 'first_name', 'last_name')
 
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ('id', 'product_id', 'customer_id',  'payment_id')
+
 class ProductTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product_Type
@@ -30,12 +35,6 @@ class PaymentTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payment_Type
         fields = ('id', 'name', 'account_num', 'customer_id')
-
-class OrderSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Order
-        fields = ('id', 'order_name', 'product_id', 'customer_id', 'payment_id')
-
 
 ###########################################################################
 # EMPLOYEE SIDE SERIALIZERS
