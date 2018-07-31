@@ -6,12 +6,10 @@ For now, all calls to the API will be made from http://localhost:5000 as the dom
 
 CUSTOMERS
 
-*GET: /customer pulls all customer entries
+* GET: /customer pulls all customer entries
+* GET: /customer/*customer id* pulls single customer
+* GET: /inactive_customers table added to show all customers with no activity, stored as a true/false attribute
+* POST: adds new customer entry
+* PUT: allows editing of customer infomration
 
-*GET: /customer/*customer id* pulls single customer
 
-*POST: adds new customer entry
-
-*PUT: allows editing of customer infomration
-
-inactive customer table added to show all customers with no activity, stored as a true/false attribute
