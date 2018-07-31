@@ -44,15 +44,10 @@ class Payment_Type(models.Model):
     account_num = models.IntegerField(unique=True)
     customer_id = models.ForeignKey('Customer', on_delete=models.CASCADE, null=True, blank=True)
 
-    ## Shows in field when you grab the foreign key the title of the Payment Type
-    def __str__(self):
-        return "{0}".format(self.name)
-
 class Order(models.Model):
-    order_name = models.CharField(max_length=30)
-    customer_id = models.ForeignKey(Customer, on_delete=models.PROTECT, null=True, blank=True)
     product_id = models.ForeignKey(Product, on_delete=models.PROTECT, null=True, blank=True)
-    payment_id = models.ForeignKey(Payment_Type, on_delete=models.PROTECT, null=True, blank=True)
+    customer_id = models.ForeignKey(Customer, on_delete=models.PROTECT, null=True, blank=True)
+    payment_id = models.ForeignKey(Payment_Type, on_delete=models.CASCADE, blank=True, null=True, default=None)
 
 
 ###########################################################################
@@ -74,8 +69,8 @@ class Computer(models.Model):
 # Authors: Cashew & Raf <3 - Training_Prog
 class Training_Prog(models.Model):
     name = models.CharField(max_length=50)
-    start_date = models.DateTimeField(auto_now_add=True)
-    end_date = models.DateTimeField(auto_now_add=True)
+    start_date = models.DateTimeField(auto_now_add=False, null=True, blank=True)
+    end_date = models.DateTimeField(auto_now_add=False, null=True, blank=True)
     max_attendees = models.PositiveIntegerField() # We need to find away to set the range from 1-100 and possibly allow a user to create an event and manually set the max attendees number
 
     def __str__(self):
