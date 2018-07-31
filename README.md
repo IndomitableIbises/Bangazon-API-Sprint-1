@@ -7,3 +7,5 @@ GET: /customer pulls all customer entries
 GET: /customer/*customer id* pulls single customer
 
 POST: adds new customer entry
+
+PUT: allows editing of customer infomration
