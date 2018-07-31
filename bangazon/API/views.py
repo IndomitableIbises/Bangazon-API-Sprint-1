@@ -5,8 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
-from API.models import Product, Product_Type, Customer, Order, Payment_Type, Employee, Training_Prog, Emp_Training, Department, Computer
-from API.serializers import ProductSerializer, ProductTypeSerializer, CustomerSerializer, OrderSerializer, PaymentTypeSerializer, EmployeeSerializer, TrainingSerializer, Emp_TrainSerializer, DepartmentSerializer, ComputerSerializer
+from API.models import Product, Product_Type, Customer, Order, Payment_Type, Employee, Training_Prog, Emp_Training, Department, Computer, Prod_Order
+from API.serializers import ProductSerializer, ProductTypeSerializer, CustomerSerializer, OrderSerializer, PaymentTypeSerializer, EmployeeSerializer, TrainingSerializer, Emp_TrainSerializer, DepartmentSerializer, ComputerSerializer, Prod_Order_Serializer
 
 
 ###########################################################################
@@ -22,6 +22,9 @@ class customers(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class= CustomerSerializer
     http_method_names = ['get', 'put', 'post']
+
+
+
 
 # Author Raf = inactive_customers view
 class inactive_customers(viewsets.ModelViewSet):
@@ -40,6 +43,7 @@ class inactive_customers(viewsets.ModelViewSet):
         queryset = Inactive_Customers #this holds all the Inactive Customers from query
         return queryset
 
+# Author Jake - Product_Type View
 class Product_TypeViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Product Type to be viewed or edited.
@@ -47,6 +51,7 @@ class Product_TypeViewSet(viewsets.ModelViewSet):
     queryset = Product_Type.objects.all()
     serializer_class = ProductTypeSerializer
 
+# Authors: Sean & Jake - Product View
 class ProductViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Products to be viewed or edited.
@@ -54,7 +59,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-# Authors Cashew <3
+# Author Cashew <3
 # Shows the Payment_types view
 class pay_types(viewsets.ModelViewSet):
     """
@@ -63,6 +68,7 @@ class pay_types(viewsets.ModelViewSet):
     queryset = Payment_Type.objects.all()
     serializer_class = PaymentTypeSerializer
 
+# Author Sean - Orders view
 class orders(viewsets.ModelViewSet):
     """
     API endpoint that allows Orders to be viewed or edited.
@@ -70,6 +76,13 @@ class orders(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
+# Authors: Cashew & Jake <3 - Prod_Order View
+class Prod_Order_ViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows you to connect a customers order with their products.
+    """
+    queryset = Prod_Order.objects.all()
+    serializer_class = Prod_Order_Serializer
 
 ###########################################################################
 # EMPLOYEE SIDE VIEWS
@@ -85,6 +98,7 @@ class Employee(viewsets.ModelViewSet):
     http_method_names = ['get', 'put', 'post']
 
 
+# Author Jake - Department View
 class DepartmentViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Departments to be viewed or edited.
@@ -93,6 +107,7 @@ class DepartmentViewSet(viewsets.ModelViewSet):
     serializer_class = DepartmentSerializer
     http_method_names = ['get', 'put', 'post']
 
+# Author Jake - Computer View
 class ComputerViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Computers to be viewed or edited.

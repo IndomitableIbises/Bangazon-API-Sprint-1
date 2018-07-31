@@ -48,6 +48,8 @@ router.register(r'training', views.Training_Prog)
 # Author Raf & Cashew <3 - Emp_Training Url
 router.register(r'employee_training', views.Emp_Train)
 
+router.register(r'Prod_Order', views.Prod_Order_ViewSet)
+
 
 urlpatterns = [
     url(r'^', include(router.urls))

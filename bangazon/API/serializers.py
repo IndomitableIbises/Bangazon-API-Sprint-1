@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from API.models import Product, Customer, Product_Type, Payment_Type, Order, Employee, Training_Prog, Emp_Training, Department, Computer
+from API.models import Product, Customer, Product_Type, Payment_Type, Order, Employee, Training_Prog, Emp_Training, Department, Computer, Prod_Order
 
 
 ###########################################################################
@@ -14,20 +14,30 @@ class CustomerSerializer(serializers.ModelSerializer):
         model = Customer
         fields = ('id', 'account_date', 'active', 'last_login', 'first_name', 'last_name')
 
-class OrderSerializer(serializers.ModelSerializer):
+# Authors: Cashew & Jake <3 - Prod_Order
+class Prod_Order_Serializer(serializers.ModelSerializer):
     class Meta:
-        model = Order
-        fields = ('id', 'product_id', 'customer_id',  'payment_id')
+        model = Prod_Order
+        fields = '__all__'
 
-class ProductTypeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Product_Type
-        fields = ('id', 'name')
-
+# Authors: Sean & Jake - Product
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ('id', 'title', 'price', 'description', 'quantity', 'customer_id', 'type_id')
+
+# Authors: Cashew, Jake, & Sean <3 - Prod_Order
+class OrderSerializer(serializers.ModelSerializer):
+    products = ProductSerializer(many=True, read_only=True)
+    class Meta:
+        model = Order
+        fields = ('id', 'customer_id',  'payment_id', 'completed', 'products')
+
+# Author Jake - Product_Type
+class ProductTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product_Type
+        fields = ('id', 'name')
 
 # Author Cashew <3
 # Translates customer table database into json format
@@ -40,13 +50,13 @@ class PaymentTypeSerializer(serializers.ModelSerializer):
 # EMPLOYEE SIDE SERIALIZERS
 ###########################################################################
 
-
+# Author Jake - Department
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
         fields = ('id', 'name', 'budget')
-        
 
+# Author Jake - Computer
 class ComputerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Computer

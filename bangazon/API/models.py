@@ -17,6 +17,7 @@ class Customer(models.Model):
     def __str__(self):
         return "{0} {1}".format(self.first_name, self.last_name)
 
+# Author Jake - Product_Type
 class Product_Type(models.Model):
     name = models.CharField(max_length=30)
 
@@ -24,6 +25,7 @@ class Product_Type(models.Model):
     def __str__(self):
         return f'{self.name}'
 
+# Authors: Sean & Jake - Product
 class Product(models.Model):
     title = models.CharField(max_length=30)
     price = models.DecimalField(max_digits=12, decimal_places=2, default=0)
@@ -31,6 +33,7 @@ class Product(models.Model):
     quantity = models.IntegerField(default=1)
     customer_id = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
     type_id = models.ForeignKey(Product_Type, on_delete=models.SET_NULL, null=True, blank=True)
+
 
     ## Shows in field when you grab the foreign key the title of the product
     def __str__(self):
@@ -43,17 +46,23 @@ class Payment_Type(models.Model):
     account_num = models.IntegerField(unique=True)
     customer_id = models.ForeignKey('Customer', on_delete=models.CASCADE, null=True, blank=True)
 
+# Author Sean - EmployeeViewSet
 class Order(models.Model):
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=True)
+    completed = models.BooleanField(default=False)
     customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True, blank=True)
     payment_id = models.ForeignKey(Payment_Type, on_delete=models.SET_NULL, blank=True, null=True, default=None)
-
+    products = models.ManyToManyField(Product, through='Prod_Order')
+ 
+# Authors: Cashew & Jake <3 - Prod_Order
+class Prod_Order(models.Model):
+    product_id = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=True)
+    order_id = models.ForeignKey(Order, on_delete=models.CASCADE, null=True, blank=True)
 
 ###########################################################################
 # EMPLOYEE SIDE DATABASE
 ###########################################################################
 
-
+# Author Jake - Department 
 class Department(models.Model):
     name = models.CharField(max_length=30)
     budget = models.DecimalField(max_digits=12, decimal_places=2, default=0)
@@ -61,6 +70,7 @@ class Department(models.Model):
     def __str__(self):
         return "{0}".format(self.name)
 
+# Author Jake - Computer 
 class Computer(models.Model):
     purchase_date = models.DateTimeField(auto_now_add=True)
     decom_date = models.DateTimeField(auto_now_add=False, null=True, blank=True)
