@@ -23,6 +23,23 @@ class customers(viewsets.ModelViewSet):
     serializer_class= CustomerSerializer
     http_method_names = ['get', 'put', 'post']
 
+# Author Raf = inactive_customers view
+class inactive_customers(viewsets.ModelViewSet):
+    """
+    API endpoint that displays Inactive Users.
+    """
+    serializer_class = CustomerSerializer
+
+    def get_queryset(self):
+        inactive = Customer.objects.all()
+        Inactive_Customers = set()
+        for c in inactive:
+            if c.active == False:
+                Inactive_Customers.add(c)
+
+        queryset = Inactive_Customers #this holds all the Inactive Customers from query
+        return queryset
+
 class Product_TypeViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Product Type to be viewed or edited.
@@ -66,7 +83,7 @@ class Employee(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
     http_method_names = ['get', 'put', 'post']
-    
+
 
 class DepartmentViewSet(viewsets.ModelViewSet):
     """
